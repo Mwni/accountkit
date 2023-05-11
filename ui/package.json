@@ -1,0 +1,16 @@
+{
+	"name": "@accountkit/ui",
+	"type": "module",
+	"main": "index.js",
+	"peerDependencies": {
+		"@architekt/ui": "file:../../architekt/ui",
+		"@architekt/router": "file:../../architekt/router"
+	},
+	"dependencies": {
+		"@architekt/forms": "file:../../architekt/forms",
+		"@accountkit/core": "file:../core"
+	},
+	"architekt": {
+		"bundle": true
+	}
+}
