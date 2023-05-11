@@ -1,0 +1,18 @@
+{
+	"name": "@accountkit/core",
+	"type": "module",
+	"main": "index.js",
+	"dependencies": {
+		"@architekt/api": "file:../../architekt/api",
+		"@architekt/forms": "file:../../architekt/forms",
+		"bcrypt": "^5.1.0"
+	},
+	"exports": {
+		".": "./index.js",
+		"./models": "./models.js",
+		"./api": "./api.js"
+	},
+	"architekt": {
+		"bundle": true
+	}
+}
