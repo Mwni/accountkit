@@ -28,6 +28,23 @@ export default ({ db, format, hooks }) => {
 		})
 	}
 
+	async function requireAccount({ ctx }){
+		let session = await getSessionFromCtx({ ctx })
+	
+		if(!session)
+			throw {
+				message: 'You are not signed in. Please refresh the page and sign in.',
+				expose: true
+			}
+	
+		return await db.accounts.readOne({
+			where: {
+				id: session.account.id
+			}
+		})
+	}
+	
+
 	async function assertCredentials({ email, password }){
 		let account = await db.accounts.readOne({
 			where: {
@@ -243,6 +260,7 @@ export default ({ db, format, hooks }) => {
 	return {
 		getClientAccountBy,
 		getSessionFromCtx,
+		requireAccount,
 		assertCredentials,
 		createSession,
 		deleteSessionBy,
